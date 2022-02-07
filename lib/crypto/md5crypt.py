@@ -17,9 +17,9 @@
 
 SYNOPSIS
 
-	import md5crypt.py
+    import md5crypt.py
 
-	cryptedpassword = md5crypt.md5crypt(password, salt);
+    cryptedpassword = md5crypt.md5crypt(password, salt);
 
 DESCRIPTION
 
@@ -38,7 +38,7 @@ apache_md5_crypt() provides a function compatible with Apache's
 
 """
 
-MAGIC = '$1$'			# Magic string
+MAGIC = '$1$'           # Magic string
 ITOA64 = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 
 import hashlib
@@ -47,8 +47,8 @@ def to64 (v, n):
     ret = ''
     while (n - 1 >= 0):
         n = n - 1
-	ret = ret + ITOA64[v & 0x3f]
-	v = v >> 6
+    ret = ret + ITOA64[v & 0x3f]
+    v = v >> 6
     return ret
 
 

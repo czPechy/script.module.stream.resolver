@@ -91,6 +91,8 @@ def add_dir(name, params, logo='', infoLabels={}, menuItems={}):
     if logo == None:
         logo = ''
     liz = xbmcgui.ListItem(name, iconImage='DefaultFolder.png', thumbnailImage=logo)
+    #liz = xbmcgui.ListItem(name)
+    #liz.setIsFolder(True)
     try:
         liz.setInfo(type='Video', infoLabels=infoLabels)
     except:
@@ -122,6 +124,8 @@ def add_local_dir(name, url, logo='', infoLabels={}, menuItems={}):
     name = decode_html(name)
     infoLabels['Title'] = name
     liz = xbmcgui.ListItem(name, iconImage='DefaultFolder.png', thumbnailImage=logo)
+    #liz = xbmcgui.ListItem(name)
+    #liz.setIsFolder(True)
     liz.setInfo(type='Video', infoLabels=infoLabels)
     items = []
     for mi in list(menuItems.keys()):
@@ -138,6 +142,7 @@ def add_video(name, params={}, logo='', infoLabels={}, menuItems={}):
         infoLabels['Title'] = name
     url = _create_plugin_url(params)
     li = xbmcgui.ListItem(name, path=url, iconImage='DefaultVideo.png', thumbnailImage=logo)
+    #li = xbmcgui.ListItem(name, path=url)
     li.setInfo(type='Video', infoLabels=infoLabels)
     # remove WARNING: XFILE::CFileFactory::CreateLoader - unsupported
     # protocol(plugin) in plugin://....

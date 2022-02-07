@@ -14,13 +14,15 @@ def supports(url):
 	return re.search(r'nahnoji\.cz/.+', url) is not None
 
 def resolve(url):
-        # returns the stream url
-        stream = []
+	# returns the stream url
+	stream = []
+
 	if url.endswith('.flv'):
-            stream = [url]
-        else:
-	    page = util.parse_html(url)
-            stream = ['http://nahnoji.cz'+x['src'] for x in page.select('source[type=video/mp4]')]
+		stream = [url]
+	else:
+		page = util.parse_html(url)
+		stream = ['http://nahnoji.cz'+x['src'] for x in page.select('source[type=video/mp4]')]
+
 	if stream:
 		result=[]
 		for streamurl in stream:
